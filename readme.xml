@@ -1,0 +1,24 @@
+<!-- Если не устанавливается папка VENDOR: прописать в php.ini файл extension=php_fileinfo.dll -->
+Команды:
+    <!-- установить COMPOSER -->
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+        php composer-setup.php
+        php -r "unlink('composer-setup.php');"
+    <!-- установить LARAVEL -->
+        php composer.phar create-project laravel/laravel blog 9
+    <!-- команды: -->
+        php artisan         | получение списка команд
+        php artisan serve   | запуск сервера
+        php -S localhost:8000 -t public | сервер запускать при помощи данной команды  (иначе стили не подцепляются)
+                                          Просто устанавливается собственный сервер php по адресу -S с начальной точкой (корнем) в -t . 
+                                          Это помогает при работе с абсолютными путями лучше, чем у artisan-сервера.
+        php artisan make:controller StaticController | создание контроллера
+    <!-- команды для работы с CSS и JS: -->
+        Для того, чтобы этот CSS- файл был скомпилирован, сжат и перемещен в папку public необходимо:
+            - в файле package.json установить необходимые библиотеки (npm install или npm i). Не забываем скачать и установить NODE.JS
+            - появятся: папка node_modules и файл package-lock.json
+            - npm run dev (сборка. Команды прописаны в файле package.json)
+            - сервер запускать при помощи команды php -S localhost:8000 -t public (иначе стили не подцепляются)
+              Просто устанавливается собственный сервер php по адресу -S с начальной точкой (корнем) в -t . 
+              Это помогает при работе с абсолютными путями лучше, чем у artisan-сервера.
