@@ -22,3 +22,20 @@
             - сервер запускать при помощи команды php -S localhost:8000 -t public (иначе стили не подцепляются)
               Просто устанавливается собственный сервер php по адресу -S с начальной точкой (корнем) в -t . 
               Это помогает при работе с абсолютными путями лучше, чем у artisan-сервера.
+<!-- Parth_02 -->
+    - php artisan make:controller ArticlesController | Создадим контроллер для статей
+    - php artisan make:model Article -m | Создадим модель (таблицу) вместе с файлом миграций
+      Потом в файле миграций указываем необходимые поля для данных
+    - в файле .env прописываем данные для доступа к БД
+    - в файле AppServiceProvider.php прописываем use Illuminate\Support\Facades\Schema;
+      специальный класс с помощью которого мы можем прописывать новые настройки для наших таблиц и полей
+      в функции public function boot() | Schema::defaultStringLength(170)
+    - php artisan migrate |выполнение миграций
+    - php artisan migrate:rollback --step=1 |откат одной последней миграции
+    - php artisan tinker | добавление значений в БД
+        > $article = new App\Models\Article()
+        > $article->title = "First post";
+        > $article->anons = "Anons for firstt article"; 
+        > $article->text = "Full text for first article";
+        > $article->save();
+      чтобы значения добавились нужно отключить временные метки timestamps() - в файле модели прописать public $timestamps = false;
