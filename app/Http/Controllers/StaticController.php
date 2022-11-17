@@ -2,26 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StaticController extends Controller
 {
-    public function index() {
-        $title = 'Главная страница';
-        return view('static/index', compact('title')); // первый вариант передачи данных в прредставление
+
+    public function index()
+    {
+        $articles = Article::orderBy('id', 'desc')->get();
+        // $articles = Article::where('id', '<', 3)->orderBy('id', 'desc')->get();
+        // $articles = DB::select('SELECT * FROM articles');
+        // $articles = Article::orderBy('id', 'desc')->take(1)->get();
+        // $articles = Article::orderBy('id', 'desc')->paginate(1);
+        return view('static.index')->with('articles', $articles);
     }
 
     public function about()
     {
         $data = [
-            'title_page' => 'Страница про нас',
+            'title' => 'Страница про нас',
             'params' => ['BMW', 'Audi', 'Volvo']
         ];
         return view('static.about')->with($data);
     }
-
-    // public function about() {
-    //     $title = 'Про нас';
-    //     return view('static/about')->with('title_page',$title); // второй вариант передачи данных в прредставление ($имя по которой передаются данные, $данные)
-    // }
 }

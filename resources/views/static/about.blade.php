@@ -1,7 +1,7 @@
 @extends('layout.main')
 
-@section('title')
-{{ $title_page }}
+@section('page-title')
+{{ $title }}
 @endsection
 
 @section('content')

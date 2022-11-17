@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string("title"); // тип стринг - максимум 255
+            $table->string("title"); // 255
             $table->mediumText("anons");
             $table->longText("text");
-            // $table->timestamps();
         });
     }
 

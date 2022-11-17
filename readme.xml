@@ -1,4 +1,8 @@
 <!-- Если не устанавливается папка VENDOR: прописать в php.ini файл extension=php_fileinfo.dll -->
+Сборка пакета:
+  - php composer.phar install
+  - npm i
+
 Команды:
     <!-- установить COMPOSER -->
         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -23,7 +27,8 @@
               Просто устанавливается собственный сервер php по адресу -S с начальной точкой (корнем) в -t . 
               Это помогает при работе с абсолютными путями лучше, чем у artisan-сервера.
 <!-- Parth_02 -->
-    - php artisan make:controller ArticlesController | Создадим контроллер для статей
+    <!-- Создание таблицы БД -->
+    - php artisan make:controller ArticlesController | Создадим простой контроллер для статей
     - php artisan make:model Article -m | Создадим модель (таблицу) вместе с файлом миграций
       Потом в файле миграций указываем необходимые поля для данных
     - в файле .env прописываем данные для доступа к БД
@@ -39,3 +44,10 @@
         > $article->text = "Full text for first article";
         > $article->save();
       чтобы значения добавились нужно отключить временные метки timestamps() - в файле модели прописать public $timestamps = false;
+    <!-- Получение данных из БД -->
+    php artisan make:controller ArticlesController --resource | Создадим контроллер для работы с БД
+    php artisan route:list | показывает все отслеживаемые адреса
+      - для получения данных обращаемся к нужной модели и вызываем необходимый метод
+    <!-- Получение данных из БД -->
+    - php composer.phar require laravelcollective/html | установка библиотеки laravelcollective для работы с формами
+      пример формочки смотри create.blade.php
