@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'StaticController@index')->name('home');
@@ -17,3 +18,6 @@ Route::get('/article/{id}', 'ArticlesController@show');
 Route::delete('/article/{id}/delete', 'ArticlesController@destroy');
 // Route::resource('/articles', 'ArticlesController');
 
+Auth::routes();
+
+Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');

@@ -51,3 +51,28 @@
     <!-- Получение данных из БД -->
     - php composer.phar require laravelcollective/html | установка библиотеки laravelcollective для работы с формами
       пример формочки смотри create.blade.php
+
+
+
+
+
+
+
+
+
+
+<!-- INSERT INTO `articles`(`title`, `anons`, `text`) VALUES 
+  ('First post','Anons for the First post','Full text for the First post'),
+  ('Second post','Anons for the Second post','Full text for the Second post'),
+  ('Third post','Anons for the Third post','Full text for the Third post'),
+  ('Fourth post','Anons for the Fourth post','Full text for the Fourth post'),
+  ('Fifth post','Anons for the Fifth post','Full text for the Fifth post'),
+  ('Sixthpost','Anons for the Sixthpost','Full text for the Sixthpost')
+
+INSERT INTO `shops`(`name`, `description`, `price`, `category`) VALUES
+  ('Кепка','Отличная кепка, для настоящих пацанов','100', 'Категория 1'),
+  ('Ботинки','Всепроходные ботинки - грязи не боятся','1500', 'Категория 2'),
+  ('Куртка','Куртка для тех, кому холодно ','5000', 'Категория 2'),
+  ('Штаны','Мама сшила мне штаны из березовой коры','2000', 'Категория 1'),
+  ('Трусы','Труселя на каждый день','300', 'Категория 3'),
+  ('Перчатки','Очень полезные перчатки по низкой цене','500', 'Категория 2') -->
