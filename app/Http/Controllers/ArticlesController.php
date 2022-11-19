@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,7 +26,7 @@ class ArticlesController extends Controller
             'title' => 'required|max:170|min:10',
             'anons' => 'required|min:10',
             'text' => 'required|min:10',
-            'main_image' => 'nullable|image|max:500'
+            'main_image' => 'nullable|image|max:500' // необязательное поле, не более 500КБт
         ]);
 
         if ($request->hasFile('main_image')) {
@@ -50,10 +51,17 @@ class ArticlesController extends Controller
         return redirect('/')->with('success', 'Статья добавлена');
     }
 
+    // public function show($id)
+    // {     
+    //     $article = Article::find($id);
+    //     return view('articles.show')->with('article', $article);
+    // }
+
     public function show($id)
     {
         $article = Article::find($id);
-        return view('articles.show')->with('article', $article);
+        $comment = Comment::where('article_id', '=', $id)->orderBy('id', 'desc')->get();
+        return view('articles.show', compact('article', 'comment'));
     }
 
     public function edit($id)

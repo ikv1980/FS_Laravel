@@ -18,6 +18,10 @@ Route::get('/article/{id}', 'ArticlesController@show');
 Route::delete('/article/{id}/delete', 'ArticlesController@destroy');
 // Route::resource('/articles', 'ArticlesController');
 
+
+// Добавление комментария
+Route::post('/article/{id}', 'CommentController@store');
+
 Auth::routes();
 
 Route::get('/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user');

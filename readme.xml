@@ -52,6 +52,10 @@
     - php composer.phar require laravelcollective/html | установка библиотеки laravelcollective для работы с формами
       пример формочки смотри create.blade.php
 
+    <!-- Добавление картинки на сайт (FS_15_загрузка изображений через форму 19:40) -->
+    php artisan storage:link | связка папки .\storage\app\public и .\public
+
+
 
 
 

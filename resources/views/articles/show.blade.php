@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>{{ $article->title }} / Статья на Blog Spot</h1>
+    <h1>{{ $article->title }}</h1>
     <a href="/" class="back-button">На главную</a>
     <div class="articles one">
         <div class="post">
@@ -24,7 +24,8 @@
                     {!! Form::close() !!}
                 @endif
             @endauth
-
         </div>
+        {{-- Подключение блока с комментариями --}}
+        @include('articles.comment')
     </div>
 @endsection
