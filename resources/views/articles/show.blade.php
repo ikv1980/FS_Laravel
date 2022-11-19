@@ -25,7 +25,7 @@
                 @endif
             @endauth
         </div>
-        {{-- Подключение блока с комментариями --}}
-        @include('articles.comment')
     </div>
+    {{-- Подключение блока с комментариями --}}
+    @include('articles.comment')
 @endsection

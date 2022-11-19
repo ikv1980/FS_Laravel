@@ -60,6 +60,12 @@ header nav a {
 
 header nav form {display: inline;}
 
+header nav form button {
+    margin-top: 0px;
+    background: #ff956c;
+    border: 0;
+}
+
 header nav a.active {
     border: 2px solid #4a83c7;
     border-radius: 5px;
@@ -157,6 +163,8 @@ header form button {
     transition: transform 500ms ease;
 }
 
+
+
 .articles .post a:hover,
 .back-button:hover,
 .delete-button:hover,
@@ -218,6 +226,17 @@ form.article-form input[type='submit'] {
 
 form.article-form input[type='submit']:hover {
     background: #a63f3f;
+}
+
+.comment {
+    width: 100%;
+    background-color: #adadad;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
 }
 
 .error-mess,

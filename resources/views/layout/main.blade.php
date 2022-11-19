@@ -21,15 +21,17 @@
             {{-- <a href="{{ route('blog') }}" class="{{ request()->routeIs('blog') ? 'active' : '' }}">Блог</a> --}}
  
             @guest
-                <a href="/login">Войти</a>
-                <a href="/register">Регистрация</a>
+                {{-- <a href="/login">Войти</a>
+                <a href="/register">Регистрация</a> --}}
+                <a href="{{ route('login') }}" class="{{ request()->routeIs('login') ? 'active' : '' }}">Войти</a>
+                <a href="{{ route('register') }}" class="{{ request()->routeIs('register') ? 'active' : '' }}">Регистрация</a>
             @else
-                <a href="/user">{{ Auth::user()->name }}</a>
-                <a href="/article/add">Добавить статью</a>
+                <a href="{{ route('user') }}" class="{{ request()->routeIs('user') ? 'active' : '' }}">{{ Auth::user()->name }}</a>
+                <a href="{{ route('articleadd') }}" class="{{ request()->routeIs('articleadd') ? 'active' : '' }}">Добавить статью</a>
 
                 <form action="/logout" method="POST">
                     @csrf
-                    <button type="submit">Выйти</button>
+                    <button type="submit" class = "menu">Выйти</button>
                 </form>
             @endguest
         </nav>

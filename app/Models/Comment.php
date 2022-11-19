@@ -10,8 +10,8 @@ class Comment extends Model
     use HasFactory;
     public $timestamps = false;
 
-    public function user()
-    {
-        return $this->belongsTo('App\Models\Article');
-    }
+    // public function article()
+    // {
+    //     return $this->belongsTo('App\Models\Article');
+    // }
 }

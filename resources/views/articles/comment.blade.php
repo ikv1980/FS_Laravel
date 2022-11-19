@@ -1,14 +1,14 @@
 {{-- Выыод комментариев  --}}
-<div class="comment">
+<div>
     @foreach ($comment as $el)
-        <div class="post">
+        <div class="comment">
             <p>{{ $el->text }}</p>
         </div>
     @endforeach
 </div>
 
 {{-- Добавление комментариев  --}}
-<div class="post comment">
+<div>
 <h2>Форма комментариев</h2>
 {!! Form::open(['class' => 'article-form']) !!}
     {{ Form::label('text', 'Комментарий') }}
