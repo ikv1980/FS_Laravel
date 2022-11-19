@@ -55,6 +55,17 @@
     <!-- Добавление картинки на сайт (FS_15_загрузка изображений через форму 19:40) -->
     php artisan storage:link | связка папки .\storage\app\public и .\public
     php .\artisan make:migration add_field_to_comment | создаем новую миграцию в существующую таблицу
+    <!-- Выгрузка сайта на хостинг-->
+    - создаем на хостинге БД
+    - экспортируем БД с локального 
+    - импортируем БД на удаленный хостинг
+    - настраиваем  файл .env
+      - php artisan key:generate | генерирование ключа в файле .env (строка 3 APP_KEY=base64)
+      - php artisan config:cache | очистка кэша
+      - настроить и перенести файл .htaccess в корень проекта
+      - очищаем полностью .\storage\logs
+      - удаляем файл .\bootstrap\cache\config.php
+
 
 
 
